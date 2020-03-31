@@ -29,7 +29,7 @@ func main() {
 
 	// [START fs_initialize]
 	// Sets your Google Cloud Platform project ID.
-	projectID := "quarantine-alert-22365"
+	projectID := "gke-serverless-211907"
 
 	// Get a Firestore client.
 	ctx := context.Background()
@@ -39,7 +39,9 @@ func main() {
 	}
 
 	// Close client when done.
-	defer client.Close()
+	defer func() {
+		_ = client.Close()
+	}()
 	// [END fs_initialize]
 
 	// [START fs_add_data_1]
