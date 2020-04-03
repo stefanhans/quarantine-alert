@@ -87,7 +87,8 @@ contagious              bool      : set to false as default [ignored]
 time-contagion-updated  timestamp : set to current timestamp as default [ignored]
 
 Examples:
-curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/query -d '{"requester":"uBAJbYDJTBHOVqrceZur"}'
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/query \
+    -d '{"requester":"uBAJbYDJTBHOVqrceZur"}'
 ```
 
 ---
