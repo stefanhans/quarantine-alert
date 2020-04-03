@@ -60,3 +60,17 @@ gcloud functions describe query --region europe-west3 --format='value(httpsTrigg
 
 curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/query -d '{"requester":"<1st existing ID>"}'
 ```
+
+#### Deploy Function ```dump```
+```bash
+gcloud functions deploy dump --region europe-west3 \
+    --entry-point Dump --runtime go113 --trigger-http \
+    --allow-unauthenticated
+```
+
+#### Test Function ```query```
+```bash
+gcloud functions describe query --region europe-west3 --format='value(httpsTrigger.url)'
+
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/query -d '{"requester":"<1st existing ID>"}'
+```
