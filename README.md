@@ -28,11 +28,14 @@ curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register -d 
 
 curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register -d '{"contagious":true}'
 
-curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register -d '{"contagious":true,"since":"2020-04-01T08:00:00+02:00"}'
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register \
+    -d '{"contagious":true,"time-contagion-updated":"2020-04-01T08:00:00+02:00"}'
     
-curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register -d '{"contagious":true,"since":"2020-04-01T00:00:00Z"}'
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register \
+    -d '{"contagious":true,"time-contagion-updated":"2020-04-01T00:00:00Z"}'
     
-curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register -d '{"reporter":"to be ignored","contagious":false,"since":"2020-04-01T08:46:36.649207+02:00"}'
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register \
+    -d '{"reporter":"to be ignored","contagious":false,"time-contagion-updated":"2020-04-01T08:46:36.649207+02:00"}'
 ```
 
 ---
@@ -48,7 +51,8 @@ contagious  bool                 : to be updated
 time-contagion-updated timestamp : set to current timestamp as default [optional]
 
 Examples:
-curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/update -d '{"reporter":"B3AQeB8acvRzK9FXtPxP","contagious":true}'
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/update \
+    -d '{"reporter":"B3AQeB8acvRzK9FXtPxP","contagious":true}'
 
 ```
 
@@ -66,7 +70,8 @@ contact      string     : unique ID of contacted app
 contact-time timestamp  : set to current timestamp as default [optional]
 
 Examples:
-curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/contacted -d '{"reporter":"B3AQeB8acvRzK9FXtPxP","contact":"HlUv5MfjBhbfvEtNfATR"}'
+curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/contacted \
+    -d '{"reporter":"B3AQeB8acvRzK9FXtPxP","contact":"HlUv5MfjBhbfvEtNfATR"}'
 ```
 
 ---
