@@ -35,7 +35,7 @@ curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register \
     -d '{"contagious":true,"time-contagion-updated":"2020-04-01T00:00:00Z"}'
     
 curl https://europe-west3-quarantine-alert-22365.cloudfunctions.net/register \
-    -d '{"reporter":"to be ignored","contagious":false,"time-contagion-updated":"2020-04-01T08:46:36.649207+02:00"}'
+    -d '{"reporter":"","contagious":false,"time-contagion-updated":"2020-04-01T08:46:36.649207+02:00"}'
 ```
 
 ---
