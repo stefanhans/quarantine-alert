@@ -44,18 +44,18 @@ func Register(w http.ResponseWriter, r *http.Request) {
 		_ = client.Close() // ignore error
 	}()
 
-	//fmt.Printf("registration.Since.Unix(): %v\n", registration.Since.Unix())
+	//fmt.Printf("registration.timeContagionUpdated.Unix(): %v\n", registration.timeContagionUpdated.Unix())
 
 	// Set "time-contagion-updated" to current timestamp, if empty
-	if registration.Since.IsZero() {
-		registration.Since = time.Now()
+	if registration.timeContagionUpdated.IsZero() {
+		registration.timeContagionUpdated = time.Now()
 	}
 
 	// Register in new Firestore document
 	docRef, _, err := client.Collection("contacts").Add(ctx, map[string]interface{}{
 		"nearby":                 []Opposite{},
 		"contagious":             registration.Contagious,
-		"time-contagion-updated": registration.Since,
+		"time-contagion-updated": registration.timeContagionUpdated,
 	})
 	if err != nil {
 		http.Error(w, fmt.Sprintf("failed to register as Firestore document: %s", err), http.StatusInternalServerError)

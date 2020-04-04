@@ -1,4 +1,5 @@
-package functions
+// types.go has the same types as in functions/types.go
+package client_go
 
 import "time"
 

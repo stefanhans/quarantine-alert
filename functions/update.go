@@ -62,13 +62,13 @@ func Update(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Set "time-contagion-updated" to current timestamp, if empty
-	if registration.Since.IsZero() {
-		registration.Since = time.Now()
+	if registration.timeContagionUpdated.IsZero() {
+		registration.timeContagionUpdated = time.Now()
 	}
 
 	// Update "time-contagion-updated" as timestamp
 	_, err = docRef.Update(ctx, []firestore.Update{
-		{Path: "time-contagion-updated", Value: registration.Since},
+		{Path: "time-contagion-updated", Value: registration.timeContagionUpdated},
 	})
 	if err != nil {
 		http.Error(w, fmt.Sprintf("failed to update %q: %s", "time-contagion-updated", err), http.StatusInternalServerError)
